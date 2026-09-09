@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Amari Luxe Touch - luxury hair, nails, beauty services and nail tech classes in Ngong, Astrol Petrol Station, 1st Floor." />
+  <title>Amari Luxe Touch | Hair & Nails</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #040504;
+      --black-2: #090d0a;
+      --green: #063f28;
+      --green-2: #0b6a3e;
+      --gold: #d9ad42;
+      --gold-2: #fff0a9;
+      --cream: #fff8e8;
+      --muted: #c7bfae;
+      --glass: rgba(255,255,255,.07);
+      --line: rgba(217,173,66,.32);
+      --shadow: 0 30px 80px rgba(0,0,0,.45);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(217,173,66,.16), transparent 28%),
+        radial-gradient(circle at 80% 0%, rgba(11,106,62,.35), transparent 32%),
+        linear-gradient(180deg, #020302, #07100a 38%, #030403);
+      color: var(--cream);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .08;
+      background-image: url("assets/luxury-logo-original.png");
+      background-size: min(520px, 80vw);
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1180px, calc(100% - 36px)); margin: 0 auto; position: relative; z-index: 2; }
+    .gold-text {
+      background: linear-gradient(135deg, #fff7c2, #d9ad42 42%, #8f6419 72%, #fff3b3);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(1180px, calc(100% - 28px));
+      z-index: 50;
+      border: 1px solid var(--line);
+      background: rgba(4,5,4,.72);
+      backdrop-filter: blur(18px);
+      border-radius: 999px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.28);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand img { width: 48px; height: 48px; object-fit: contain; border-radius: 50%; background: rgba(255,255,255,.9); }
+    .brand strong { font-family: Cinzel, serif; letter-spacing: .08em; font-size: 1rem; }
+    .navlinks { display: flex; gap: 18px; align-items: center; font-size: .86rem; color: #eee3c9; }
+    .navlinks a { opacity: .82; transition: .3s; }
+    .navlinks a:hover { opacity: 1; color: var(--gold-2); }
+    .menu-btn { display: none; border: 0; background: var(--gold); padding: 10px 13px; border-radius: 999px; font-weight: 900; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-weight: 800;
+      letter-spacing: .02em;
+      transition: .35s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+    .btn-primary {
+      color: #0a0701;
+      background: linear-gradient(135deg, #fff3aa, #d9ad42 55%, #7d5514);
+      box-shadow: 0 18px 38px rgba(217,173,66,.22);
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 28px 55px rgba(217,173,66,.32); }
+    .btn-ghost { border-color: var(--line); background: rgba(255,255,255,.06); color: var(--cream); }
+    .btn-ghost:hover { background: rgba(217,173,66,.1); transform: translateY(-3px); }
+
+    section { padding: 105px 0; position: relative; z-index: 1; }
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding-top: 120px;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -15% -25% -15%;
+      height: 42%;
+      background: radial-gradient(ellipse at center, rgba(217,173,66,.18), transparent 65%);
+      filter: blur(8px);
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; gap: 50px; align-items: center; }
+    .eyebrow {
+      display: inline-flex;
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--gold-2);
+      background: rgba(255,255,255,.05);
+      font-weight: 800;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    h1 {
+      font-family: Playfair Display, serif;
+      font-size: clamp(3.2rem, 8vw, 7.5rem);
+      line-height: .89;
+      letter-spacing: -.06em;
+      max-width: 760px;
+    }
+    .hero p {
+      margin: 28px 0;
+      max-width: 650px;
+      color: #dfd6c1;
+      font-size: 1.12rem;
+      line-height: 1.75;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+    .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 36px; }
+    .stat {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+    }
+    .stat strong { font-family: Cinzel, serif; font-size: 1.6rem; color: var(--gold-2); display: block; }
+    .stat span { color: var(--muted); font-size: .84rem; }
+
+    .hero-visual { position: relative; min-height: 620px; }
+    .hero-card {
+      position: absolute;
+      overflow: hidden;
+      border-radius: 34px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: #111;
+    }
+    .hero-card img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-card.main { width: 78%; height: 70%; right: 0; top: 26px; }
+    .hero-card.small { width: 47%; height: 42%; left: 0; bottom: 22px; }
+    .hero-card.logo-float {
+      width: 160px;
+      height: 160px;
+      left: 22px;
+      top: 55px;
+      padding: 12px;
+      background: rgba(255,255,255,.93);
+      animation: float 5s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-18px); } }
+
+    .section-title { max-width: 760px; margin-bottom: 42px; }
+    .section-title h2 {
+      font-family: Playfair Display, serif;
+      font-size: clamp(2.35rem, 5vw, 4.6rem);
+      line-height: .95;
+      letter-spacing: -.04em;
+      margin-bottom: 18px;
+    }
+    .section-title p { color: #d9cfba; line-height: 1.75; font-size: 1.03rem; }
+
+    .about-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 36px; align-items: stretch; }
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .about-img { min-height: 540px; }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; }
+    .about-copy { padding: 38px; }
+    .lux-list { display: grid; gap: 14px; margin-top: 25px; }
+    .lux-list li {
+      list-style: none;
+      padding: 17px 18px;
+      border: 1px solid rgba(217,173,66,.22);
+      border-radius: 18px;
+      background: rgba(4,5,4,.34);
+      color: #eee2c9;
+      line-height: 1.6;
+    }
+    .lux-list b { color: var(--gold-2); }
+
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .service-card {
+      padding: 28px;
+      min-height: 250px;
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(11,106,62,.22), transparent),
+        rgba(255,255,255,.055);
+      transition: .35s ease;
+    }
+    .service-card:hover { transform: translateY(-8px); border-color: rgba(255,240,169,.7); }
+    .service-card .icon { font-size: 2rem; margin-bottom: 18px; }
+    .service-card h3 { font-family: Cinzel, serif; color: var(--gold-2); margin-bottom: 12px; }
+    .service-card p { color: #d8d0bf; line-height: 1.65; }
+
+    .admission-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 26px; align-items: center; }
+    .poster-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .poster-stack img { border-radius: 24px; border: 1px solid var(--line); box-shadow: var(--shadow); width: 100%; height: 520px; object-fit: cover; object-position: top; }
+    .admission-copy { padding: 36px; }
+    .price-pill {
+      display: inline-flex;
+      padding: 12px 18px;
+      border-radius: 999px;
+      color: #080603;
+      background: linear-gradient(135deg, #fff0a9, #d9ad42);
+      font-weight: 900;
+      margin: 18px 0;
+    }
+
+    .pricing-wrap { display: grid; grid-template-columns: .95fr 1.05fr; gap: 30px; align-items: center; }
+    .price-image img { border-radius: 30px; border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .price-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .mini-price { padding: 22px; border-radius: 22px; border: 1px solid var(--line); background: rgba(255,255,255,.055); }
+    .mini-price h3 { color: var(--gold-2); font-family: Cinzel, serif; margin-bottom: 12px; }
+    .mini-price p { color: #d8cfbd; line-height: 1.7; }
+
+    .gallery-top { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 32px; }
+    .gallery-grid { columns: 4 220px; column-gap: 16px; }
+    .gallery-card {
+      width: 100%;
+      display: inline-block;
+      margin: 0 0 16px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: #111;
+      cursor: zoom-in;
+      box-shadow: 0 18px 45px rgba(0,0,0,.25);
+    }
+    .gallery-card img { width: 100%; height: auto; transition: .5s ease; }
+    .gallery-card:hover img { transform: scale(1.06); filter: saturate(1.08) contrast(1.05); }
+    .gallery-card span {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.65);
+      border: 1px solid var(--line);
+      color: var(--gold-2);
+      font-size: .78rem;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: .3s;
+    }
+    .gallery-card:hover span { opacity: 1; transform: translateY(0); }
+
+    .booking {
+      border-radius: 38px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(217,173,66,.18), transparent 40%),
+        linear-gradient(135deg, rgba(11,106,62,.45), rgba(255,255,255,.04));
+      padding: 50px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+      gap: 30px;
+      align-items: center;
+    }
+    form { display: grid; gap: 14px; }
+    input, select, textarea {
+      width: 100%;
+      padding: 15px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(217,173,66,.28);
+      background: rgba(0,0,0,.34);
+      color: var(--cream);
+      outline: none;
+      font: inherit;
+    }
+    textarea { min-height: 116px; resize: vertical; }
+    input::placeholder, textarea::placeholder { color: #a99f8b; }
+
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .contact-card {
+      padding: 28px;
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.055);
+    }
+    .contact-card h3 { font-family: Cinzel, serif; color: var(--gold-2); margin-bottom: 10px; }
+    .contact-card p, .contact-card a { color: #ded5c2; line-height: 1.7; }
+
+    .map-card {
+      margin-top: 22px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      min-height: 420px;
+      background: linear-gradient(135deg, rgba(217,173,66,.16), rgba(11,106,62,.2));
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 34px;
+    }
+    .map-card h3 { font-family: Playfair Display, serif; font-size: 2.4rem; margin-bottom: 12px; }
+    .map-card p { color: #dfd4bd; line-height: 1.7; max-width: 620px; }
+
+    footer {
+      padding: 50px 0;
+      border-top: 1px solid var(--line);
+      color: #bdb39d;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.86);
+      z-index: 100;
+      display: none;
+      place-items: center;
+      padding: 24px;
+    }
+    .modal.active { display: grid; }
+    .modal img {
+      max-height: 88vh;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .modal button {
+      position: absolute;
+      top: 18px;
+      right: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.09);
+      color: var(--cream);
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: .8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 980px) {
+      .navlinks {
+        position: fixed;
+        top: 78px;
+        right: 14px;
+        width: min(320px, calc(100vw - 28px));
+        flex-direction: column;
+        align-items: stretch;
+        background: rgba(4,5,4,.95);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 18px;
+        display: none;
+      }
+      .navlinks.open { display: flex; }
+      .menu-btn { display: inline-flex; }
+      .hero-grid, .about-grid, .admission-grid, .pricing-wrap, .booking { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 520px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      section { padding: 78px 0; }
+      .brand strong { display: none; }
+      .hero-stats, .services-grid, .price-cards, .poster-stack { grid-template-columns: 1fr; }
+      .poster-stack img { height: auto; }
+      .booking { padding: 24px; border-radius: 26px; }
+      .hero-card.main { width: 92%; }
+      .hero-card.small { width: 58%; }
+      .hero-card.logo-float { width: 118px; height: 118px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a class="brand" href="#home">
+      <img src="assets/amari-logo.png" alt="Amari Luxe logo">
+      <strong>AMARI LUXE</strong>
+    </a>
+    <button class="menu-btn" id="menuBtn">Menu</button>
+    <div class="navlinks" id="navlinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#admission">Open Admission</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#booking">Booking</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow reveal">Hair • Nails • Beauty • Training</span>
+          <h1 class="reveal">Luxury beauty with an <span class="gold-text">Amari touch.</span></h1>
+          <p class="reveal">Welcome to Amari Luxe Touch — a premium hair and nails studio where beauty, comfort, skill and detail meet. From elegant nail sets to stylish hair work and professional nail tech classes, every visit is designed to feel royal.</p>
+          <div class="hero-actions reveal">
+            <a class="btn btn-primary" href="#booking">Book Your Appointment</a>
+            <a class="btn btn-ghost" href="#gallery">Explore Gallery</a>
+          </div>
+          <div class="hero-stats reveal">
+            <div class="stat"><strong>5</strong><span>Weeks nail tech course</span></div>
+            <div class="stat"><strong>30K</strong><span>Course fee only</span></div>
+            <div class="stat"><strong>1st</strong><span>Floor, Astrol Petrol Station</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="hero-card main"><img src="assets/salon-interior.png" alt="Amari Luxe Touch salon interior"></div>
+          <div class="hero-card small"><img src="assets/gallery-23.png" alt="Luxury nail work"></div>
+          <div class="hero-card logo-float"><img src="assets/amari-logo.png" alt="Amari Luxe logo"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="panel about-img reveal">
+          <img src="assets/salon-interior.png" alt="Inside Amari Luxe Touch salon">
+        </div>
+        <div class="panel about-copy reveal">
+          <div class="section-title">
+            <span class="eyebrow">About Amari Luxe Touch</span>
+            <h2>Where beauty feels like a VIP experience.</h2>
+            <p>Amari Luxe Touch is built for clients who want more than a normal salon visit. We focus on clean beauty, premium finishing, comfort, creativity and service that makes every client feel valued.</p>
+          </div>
+          <ul class="lux-list">
+            <li><b>Luxury comfort:</b> clients are welcomed with tea while they relax and enjoy their appointment.</li>
+            <li><b>Extra convenience:</b> when a client comes with a dirty car and wants it washed, we can help take it to the car wash while she is at the salon.</li>
+            <li><b>Beauty services:</b> nails, hair, manicure, pedicure, nail art, make-up application and more.</li>
+            <li><b>Training:</b> we offer nail tech classes for learners ready to turn passion into perfection.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-title reveal">
+          <span class="eyebrow">Our Services</span>
+          <h2>Premium services for hair, nails and beauty.</h2>
+          <p>Choose from detailed nail care, creative nail art, hair styling, make-up application and professional nail technology training.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card reveal"><div class="icon">💅</div><h3>Nail Art</h3><p>Custom nail designs, acrylics, builder gel, gum gel, gel x, sculpting and luxury finishing.</p></div>
+          <div class="service-card reveal"><div class="icon">✨</div><h3>Manicure</h3><p>Clean manicures, gel manicures, Russian manicure and detailed nail care for elegant hands.</p></div>
+          <div class="service-card reveal"><div class="icon">🦶</div><h3>Pedicure</h3><p>Relaxing pedicure services including gel pedicure and luxury foot care experiences.</p></div>
+          <div class="service-card reveal"><div class="icon">👑</div><h3>Hair Styling</h3><p>Beautiful hair work, neat braids, detailed lines and styles finished with a professional touch.</p></div>
+          <div class="service-card reveal"><div class="icon">💄</div><h3>Make-up Application</h3><p>Clean make-up application for beauty days, events, content shoots and special occasions.</p></div>
+          <div class="service-card reveal"><div class="icon">🎓</div><h3>Nail Tech Classes</h3><p>Learn manicures, pedicures, acrylics, gel systems, nail art and client-ready salon skills.</p></div>
+          <div class="service-card reveal"><div class="icon">🌿</div><h3>Client Care</h3><p>Tea, comfort, clean tools, calm salon energy and thoughtful service from start to finish.</p></div>
+          <div class="service-card reveal"><div class="icon">🚘</div><h3>Car Wash Help</h3><p>Relax in the salon while we help organize your car wash when requested.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="admission">
+      <div class="container admission-grid">
+        <div class="admission-copy panel reveal">
+          <span class="eyebrow">Open Admission</span>
+          <h2 class="gold-text" style="font-family: Playfair Display, serif; font-size: clamp(2.4rem, 5vw, 4.5rem); line-height:.95;">Nail tech classes are open.</h2>
+          <p style="color:#ded4bd; line-height:1.75; margin-top:18px;">Turn passion into perfection with Amari Luxe Touch. Learn practical salon skills in nails and beauty with a course designed to help you grow with confidence.</p>
+          <div class="price-pill">5 Weeks Course • 30K Only</div>
+          <ul class="lux-list">
+            <li>Pedicure, manicure and Russian manicure</li>
+            <li>Gel X, deep powder nails, tips and gel</li>
+            <li>Acrylics, polygel/gum gel, builder gel and sculpting</li>
+            <li>Nail art, client care and professional salon finishing</li>
+            <li>Guaranteed attachment and job placement support</li>
+          </ul>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:0728229820">Call 0728229820</a>
+            <a class="btn btn-ghost" href="#contact">Get Location</a>
+          </div>
+        </div>
+        <div class="poster-stack reveal">
+          <img src="assets/open-admission-poster.png" alt="Amari Luxe Touch open admission poster">
+          <img src="assets/open-admission-poster-2.png" alt="Amari Luxe Touch class poster">
+        </div>
+      </div>
+    </section>
+
+    <section id="prices">
+      <div class="container pricing-wrap">
+        <div class="price-image reveal">
+          <img src="assets/price-list.png" alt="Amari Luxe Touch nail work price list">
+        </div>
+        <div class="reveal">
+          <div class="section-title">
+            <span class="eyebrow">Price List</span>
+            <h2>Nail work menu.</h2>
+            <p>The official Amari Luxe Touch nail work price list is displayed here so clients can quickly choose a service before booking.</p>
+          </div>
+          <div class="price-cards">
+            <div class="mini-price"><h3>Manicure</h3><p>Manicure, manicure + gel and men’s manicure services available.</p></div>
+            <div class="mini-price"><h3>Pedicure</h3><p>Pedicure, pedicure + gel, gelly pedicure and men’s pedicure services.</p></div>
+            <div class="mini-price"><h3>Nail Art</h3><p>Tips + gel, builder gel, gum gel, acrylics, sculpting, gel x and soak off.</p></div>
+            <div class="mini-price"><h3>Booking</h3><p>Call or message 0728229820 to confirm availability and final service details.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container">
+        <div class="gallery-top">
+          <div class="section-title reveal" style="margin-bottom:0;">
+            <span class="eyebrow">Gallery</span>
+            <h2>Real Amari work. Real luxury detail.</h2>
+            <p>Explore a curated gallery of nail designs, hair work and salon moments from Amari Luxe Touch.</p>
+          </div>
+          <a class="btn btn-ghost reveal" href="#booking">Book this look</a>
+        </div>
+        <div class="gallery-grid">
+        <button class="gallery-card reveal" data-filter="work">
+          <img src="assets/gallery-6.png" alt="Amari Luxe Touch salon work">
+          <span>View detail</span>
+        </button>
+        <button class="gallery-card reveal" data-filter="work">
+          <img src="assets/gallery-7.png" alt="Amari Luxe Touch salon work">
+          <span>View detail</span>
+        </button>
+        <button class="gallery-card reveal" data-filter="work">
+          <img src="assets/gallery-8.png" alt="Amari Luxe Touch salon work">
+          <span>View detail</span>
+        </button>
+        <button class="gallery-card reveal" data-filter="work">
+          <img src="assets/gallery-9.png" alt="Amari Luxe Touch salon work">
+          <span>View detail</span>
+        </button>
+        <button class="gallery-card reveal" data-filter="work">
+          <img src="assets/gallery-10.png" alt="Amari Luxe Touch salon work">
+          <span>View detail</span>
+        </button>
+        <button class="gallery-card reveal" data-filter="work">
+          <img src="assets/gallery-11.png" alt="Amari Luxe Touch salon work">
+          <span>View detail</span>
+        </button>
+        <button class="gallery-card reveal" data-filter="work">
+          <img src="assets/gallery-12.png" alt="Amari Luxe Touch salon work">
+          <span>View detail</span>
+        </button>
+        <button class="gallery-card reveal" data-filter="work">
+          <img src="assets/gallery-13.png" alt="Amari Luxe Touch salon work">
+          <span>View detail</span>
+        </button>
+        <button class="gallery-card reveal" data-filter="work">
+          <img src="assets/gallery-14.png" alt="Amari Luxe Touch salon work">
+          <span>View detail</span>
+        </button>
+        <button class="gallery-card reveal" data-filter="work">
+          <img src="assets/gallery-15.png" alt="Amari Luxe Touch salon work">
+          <span>View detail</span>
+        </button>
+        <button class="gallery-card reveal" data-filter="work">
+          <img src="assets/gallery-16.png" alt="Amari Luxe Touch salon work">
+          <span>View detail</span>
+        </button>
+        <button class="gallery-card reveal" data-filter="work">
+          <img src="assets/gallery-17.png" alt="Amari Luxe Touch salon work">
+          <span>View detail</span>
+        </button>
+        <button class="gallery-card reveal" data-filter="work">
+          <img src="assets/gallery-18.png" alt="Amari Luxe Touch salon work">
+          <span>View detail</span>
+        </button>
+        <button class="gallery-card reveal" data-filter="work">
+          <img src="assets/gallery-19.png" alt="Amari Luxe Touch salon work">
+          <span>View detail</span>
+        </button>
+        <button class="gallery-card reveal" data-filter="work">
+          <img src="assets/gallery-20.png" alt="Amari Luxe Touch salon work">
+          <span>View detail</span>
+        </button>
+        <button class="gallery-card reveal" data-filter="work">
+          <img src="assets/gallery-21.png" alt="Amari Luxe Touch salon work">
+          <span>View detail</span>
+        </button>
+        <button class="gallery-card reveal" data-filter="work">
+          <img src="assets/gallery-22.png" alt="Amari Luxe Touch salon work">
+          <span>View detail</span>
+        </button>
+        <button class="gallery-card reveal" data-filter="work">
+          <img src="assets/gallery-23.png" alt="Amari Luxe Touch salon work">
+          <span>View detail</span>
+        </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking">
+      <div class="container">
+        <div class="booking reveal">
+          <div>
+            <span class="eyebrow">Booking</span>
+            <h2 style="font-family: Playfair Display, serif; font-size: clamp(2.4rem, 5vw, 4.6rem); line-height:.95;">Reserve your luxury appointment.</h2>
+            <p style="color:#ded4bd; line-height:1.75; margin-top:18px;">Fill the form, then press WhatsApp Booking. It opens WhatsApp with your details ready to send to Amari Luxe Touch.</p>
+          </div>
+          <form id="bookingForm">
+            <input id="name" placeholder="Your name" required>
+            <input id="phone" placeholder="Your phone number" required>
+            <select id="service" required>
+              <option value="">Choose service</option>
+              <option>Nail Art / Acrylics</option>
+              <option>Manicure</option>
+              <option>Pedicure</option>
+              <option>Hair Styling</option>
+              <option>Make-up Application</option>
+              <option>Nail Tech Classes</option>
+              <option>Other</option>
+            </select>
+            <input id="date" type="date">
+            <textarea id="message" placeholder="Describe what you want"></textarea>
+            <button class="btn btn-primary" type="submit">WhatsApp Booking</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-title reveal">
+          <span class="eyebrow">Contacts & Location</span>
+          <h2>Visit Amari Luxe Touch.</h2>
+          <p>Reach us through phone, Instagram, TikTok or visit us physically at Ngong Astrol Petrol Station, 1st Floor.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card reveal"><h3>Phone</h3><p><a href="tel:0728229820">0728229820</a></p></div>
+          <div class="contact-card reveal"><h3>Instagram</h3><p>Amari luxe touch</p></div>
+          <div class="contact-card reveal"><h3>TikTok</h3><p>amari_luxe_touch</p></div>
+        </div>
+        <div class="map-card reveal">
+          <div>
+            <h3 class="gold-text">Astrol Petrol Station, Ngong</h3>
+            <p>Find us on the <b>1st Floor</b>. Come for premium nails, hair, beauty services, make-up application and nail tech classes in a luxury black, green and gold salon experience.</p>
+            <div class="hero-actions" style="justify-content:center;">
+              <a class="btn btn-primary" href="tel:0728229820">Call Now</a>
+              <a class="btn btn-ghost" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Astrol+Petrol+Station+Ngong">Open Google Maps</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Amari Luxe Touch. Hair, Nails & Beauty. Designed for luxury.</p>
+    </div>
+  </footer>
+
+  <div class="modal" id="modal">
+    <button id="closeModal">×</button>
+    <img id="modalImg" src="" alt="Gallery preview">
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navlinks = document.getElementById('navlinks');
+    menuBtn.addEventListener('click', () => navlinks.classList.toggle('open'));
+    document.querySelectorAll('.navlinks a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: .13 });
+    reveals.forEach(el => observer.observe(el));
+
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modalImg');
+    const closeModal = document.getElementById('closeModal');
+    document.querySelectorAll('.gallery-card img').forEach(img => {
+      img.parentElement.addEventListener('click', () => {
+        modalImg.src = img.src;
+        modal.classList.add('active');
+      });
+    });
+    closeModal.addEventListener('click', () => modal.classList.remove('active'));
+    modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('active'); });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const service = document.getElementById('service').value;
+      const date = document.getElementById('date').value;
+      const message = document.getElementById('message').value.trim();
+      const text = `Hello Amari Luxe Touch, I would like to book an appointment.%0A%0AName: ${name}%0APhone: ${phone}%0AService: ${service}%0APreferred date: ${date || 'Not specified'}%0ADetails: ${message || 'Not specified'}`;
+      window.open(`https://wa.me/254728229820?text=${text}`, '_blank');
+    });
+  </script>
+</body>
+</html>
